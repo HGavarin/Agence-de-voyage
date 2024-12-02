@@ -1,0 +1,766 @@
+
+/* SEMANTIQUES ------------------------------------------------------------------------ */
+
+header{
+    background-color: #1B4965;
+    height: 5vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    filter: alpha(opacity=80);
+    -moz-opacity: 0.80;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+    z-index: 1;
+    padding-top: 1vw;
+}
+body{
+    background-color: #d6d6d6;
+    margin: 0px;
+    padding: 0px;
+    height: fit-content;
+    overflow: scroll;
+    p{
+        font-family: "Frank Ruhl Libre", serif;
+    }
+}
+footer{
+    background-color: #1B4965;
+}
+
+/* HEADER ELEMENTS ------------------------------------------------------------------------ */
+
+#logo{
+    font-size: 3rem;
+    font-family: "Kumar One", serif;
+    a{
+        color: #CAE9FF;
+        transition: 0.5s ease-in-out;
+    }
+}
+#logo :hover{
+    font-size: 3.5rem;
+}
+.header-nav{
+    font-size: 2rem;
+    color: #CAE9FF;
+    margin: 1rem;
+    border-radius: 1rem;
+    font-family: "Frank Ruhl Libre", serif;
+    margin-left: 2vw;
+    text-decoration: none;
+    position: relative;
+}
+.header-nav:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #CAE9FF;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.header-nav:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.hamburger-menu{
+    display: none;
+}
+#menu__toggle {
+    opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+    left: 0;
+}
+.menu__btn > span::before {
+    content: '';
+    top: -1.5vw;
+}
+.menu__btn > span::after {
+    content: '';
+    top: 1.5vw;
+}
+.menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 18.75rem;
+    height: 100%;
+    margin: 0;
+    padding: 5rem 0;
+    list-style: none;
+    background-color: #1B4965;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+}
+.menu__item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #CAE9FF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #CAE9FF;
+  transition-duration: .25s;
+}
+.menu__btn {
+    position: fixed;
+    top: 5vw;
+    left: 6vw;
+    width: 5vw;
+    height: 7vw;
+    cursor: pointer;
+    z-index: 1;
+}
+.menu__item:hover {
+    background-color: #0d2c3f;
+}
+#user{
+    height: 3.5vw;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+
+/* MAIN ELEMENTS ------------------------------------------------------------------------ */
+
+.spacer{
+    height: 5vw;
+}
+.main-div{
+    margin: 7vw;
+}
+#main-img{
+    height: 25vw;
+    font-size: 1.7vw;
+    background-image: url("/img/Background\ Asia.jpg");
+    color: #F1FAEE;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw;
+    text-align: center;
+    padding-top: 10vw;
+    font-family: "IM Fell Great Primer SC", serif;
+    user-select: none;
+}
+.moteur-recherche{
+    font-family: "Frank Ruhl Libre", serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vw;
+}
+.select{
+    background-color: #F1FAEE;
+    color: #707070;
+    padding: 0.5vw;
+    font-size: 2vw;
+    margin-left: -0.4vw;
+    border: gray solid 1px;
+    font-family: "Frank Ruhl Libre", serif;
+}
+#rechercher{
+    font-size: 1.5vw;
+    font-family: "Frank Ruhl Libre", serif;
+    background-color: #CAE9FF;
+    color: #707070;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    border: gray solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#main-end-title{
+    text-align: center;
+    padding-top: 5vw;
+    font-family: "IM Fell Great Primer SC", serif;
+    user-select: none;
+    font-size: 3rem;
+    color: #1F1F1F;
+}
+#main-text{
+    margin-left: 13vw;
+    font-size: 2rem;
+    font-family: "IM Fell Great Primer SC", serif;
+    width: 70vw;
+}
+.offer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    animation: slideIn 1s forwards;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .offer-cont {
+      animation: slideIn ease-in-out both;
+      animation-timeline: view();
+      animation-range: 5vh 35vh;
+    }
+  }
+.offer-cont{
+    border: solid 0.1px;
+    max-width: 60rem;
+    max-height: 50rem;
+    background-color: white;
+    border-radius: 1rem;
+    user-select: none;
+    margin-bottom: 5vw;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.decouvrir{
+    a{
+        color: #E6E6E6;
+        background-color: #749C75;
+        padding: 1rem 1.5rem;
+        border-radius: 2.5rem;
+        font-family: "Frank Ruhl Libre", serif;
+        font-size: 1rem;
+        border: #1F1F1F solid 1px;
+        transition: 0.2s;
+    }
+}
+.decouvrir :hover{
+    background-color: #5d8562;
+    
+}
+.offer-img{
+    width: 100%;
+    max-height: 9.3rem;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: solid 0.1px;
+}
+.title-offer{
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Frank Ruhl Libre", serif;
+}
+.container-china-days-nights{
+    display: flex;
+    justify-content: space-around;
+}
+.cont-items{
+    max-width: 30rem;
+    max-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2vw;
+    font-size: 1.3rem;
+    font-family: "Frank Ruhl Libre", serif;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.price{
+    max-width: 22rem;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    max-height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5vw;
+    font-family: "Frank Ruhl Libre", serif;
+    margin-bottom: 3rem;
+}
+.days-nights{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.moon{
+    max-height: 2rem;
+    margin-right: 0.7rem;
+}
+.vl{
+    width: 1px;
+    max-height: 12rem;
+    border-left: solid 0.1px;
+    margin-top: 1.5vw;
+}
+#sContent{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 44vw;
+    animation-name: AutoSlide;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+@keyframes AutoSlide {
+    0%{
+        left: -7vw;
+    }
+    15%{
+        left: -7vw;
+    }
+    35%{
+        left: -85vw;
+    }
+    50%{
+        left: -85vw;
+    }
+    70%{
+        left: -167vw;
+    }
+    85%{
+        left: -167vw;
+    }
+    100%{
+        left: -7vw;
+    }
+}
+#slideshow{
+    position: relative;
+    overflow: hidden;
+    height: 40vw;
+    margin: auto;
+    width: 70vw;
+}
+.main-end-text{
+    font-size: 2rem;
+    width: 70vw;
+    text-align: center;
+    font-family: "Frank Ruhl Libre", serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*CONTACTS ------------------------------------- */
+
+.contacts{
+    margin-left: 10vw;
+    font-size: 1.5vw;
+    margin-top: 5vw;
+}
+.contacts-text{
+    font-size: 1.5vw;
+    width: 70vw;
+    margin-left: 10vw;
+}
+.contacts-input{
+    margin-left: 10vw;
+    font-size: 1.5vw;
+}
+#main-contact-text{
+    margin-left: 10vw;
+    width: 70vw;
+    font-size: 1.5rem;
+    font-family: "Frank Ruhl Libre", serif;
+}
+.contacts-button{
+    color: #E6E6E6;
+    background-color: #749C75;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    border: #1F1F1F solid 1px;
+    cursor: pointer;
+    width: max-content;
+    transition: 0.2s ease-in-out;
+}
+.contacts-button:hover{
+    background-color: #5d8562;
+}
+
+/*HOTEL PAGE ------------------------------------- */
+
+#norv-hotel-main-img{
+    width: 50vw;
+    height: 40vw;
+    border-radius: 1rem;
+}
+#norv-hotel-main{
+    display: flex;
+    justify-content: space-around;
+}
+#norv-hotel-main-text{
+    width: 40vw;
+    font-size: 1.7rem;
+    h1{
+        font-size: 2.5rem;
+    }
+}
+details{
+    font-size: 1.5rem;
+    width: 40rem;
+    margin-top: 1rem;
+    font-family: "Frank Ruhl Libre", serif;
+    border: black solid 1px;
+    user-select: none;
+    padding: 1.5rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: white;
+    color: #2b2b2b;
+    display: none;
+}
+#details-no-media{
+    font-size: 1.5rem;
+    width: 40rem;
+    margin-top: 4rem;
+    font-family: "Frank Ruhl Libre", serif;
+    border: black solid 1px;
+    user-select: none;
+    padding: 1.5rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: white;
+    color: #2b2b2b;
+}
+#norv-tiny-img-div{
+    width: 50vw;
+    margin-top: 2vw;
+    display: flex;
+    justify-content: space-between;
+}
+.norv-tiny-img{
+    width: 15vw;
+    border-radius: 0.5rem;
+}
+.china-hotel-button{
+    color: #E6E6E6;
+    background-color: #749C75;
+    padding: 1.5rem;
+    border-radius: 2.5rem;
+    font-size: 1.5rem;
+    border: #1F1F1F solid 1px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    width: 10rem;
+    text-align: center;
+}
+.china-hotel-button:hover{
+    background-color: #5d8562;
+}
+
+/* FOOTER ELEMENTS ------------------------------------------------------------------------ */
+
+.Newsletter{
+    font-size: 2vw;
+    text-align: center;
+    font-family: "Frank Ruhl Libre", serif;
+    margin: auto;
+    color: white;
+    padding-top: 0.3rem;
+    user-select: none;
+}
+.email{
+    border-radius: 1.5rem;
+    size: 2rem;
+    padding: 1vw;
+}
+.email-input{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.button{
+    color: #E6E6E6;
+    background-color: #749C75;
+    padding: 1.3vw;
+    border-radius: 2.5rem;
+    font-family: "Frank Ruhl Libre", serif;
+    padding-bottom: 1vw;
+    margin-left: 1vw;
+    transition: 0.2s;
+}
+.button :hover{
+    background-color: #5d8562;
+}
+.social-media{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3vw;
+}
+.icon{
+    height: 3vw;
+    margin-right: 2vw;
+    cursor: pointer;
+}
+.instagram{
+    display: flex;
+    flex-direction: row;
+    font-size: 2vw;
+    font-family: "Frank Ruhl Libre", serif;
+    font-weight: 1000;
+    color: white;
+    align-items: center;
+    cursor: pointer;
+}
+.youtube{
+    display: flex;
+    flex-direction: row;
+    font-size: 2vw;
+    font-family: "Frank Ruhl Libre", serif;
+    font-weight: 1000;
+    color: white;
+    align-items: center;
+    cursor: pointer;
+}
+.facebook{
+    display: flex;
+    flex-direction: row;
+    font-size: 2vw;
+    font-family: "Frank Ruhl Libre", serif;
+    font-weight: 1000;
+    color: white;
+    align-items: center;
+    cursor: pointer;
+}
+#line{
+    width: 80vw;
+    color: #1B4965;
+    background-color: #1B4965;
+}
+.mentions{
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    background-color: #1B4965;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+/* MEDIA */
+
+@media (max-width: 1023px){
+    .header-nav{
+        display: none;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+    header{
+        display: flex;
+        justify-content: center;
+        height: 10vw;
+    }
+    #user{
+        display: none;
+    }
+    footer{
+        height: 50vw;
+    }
+    p{
+        font-size: 1rem;
+    }
+    #logo{
+        font-size: 1.5rem;
+    }
+    .offer-cont{
+        width: 20rem;
+        height: 14rem;
+    }
+    .offer-img{
+        height: 6.25rem;
+    }
+    .vl{
+        height: 6.5rem;
+    }
+    .moon{
+        height: 5vw;
+    }
+    .cont-items{
+        width: 10rem;
+        height: 6rem;
+    }
+    .china-hotel-details{
+        width: 9rem;
+        margin-bottom: 3vw;
+    }
+    .china-hotel-button{
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+    .decouvrir > a{
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+    }
+    #main-end-title{
+        font-size: 2rem;
+    }
+    #main-text{
+        font-size: 1rem;
+    }
+    .contacts-button{
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    .Newsletter{
+        font-size: 1rem;
+    }
+    #china-hotel-title{
+        font-size: 1rem;
+    }
+    #slideshow{
+        height: 70vw;
+        width: 100vw;
+    }
+    #sContent{
+        height: 70vw;
+    }
+    @keyframes AutoSlide {
+        0%{
+            left: -14vw;
+        }
+        15%{
+            left: -14vw;
+        }
+        35%{
+            left: -150vw;
+        }
+        50%{
+            left: -150vw;
+        }
+        70%{
+            left: -270vw;
+        }
+        85%{
+            left: -270vw;
+        }
+        100%{
+            left: -14vw;
+        }
+    }
+    #main-contact-text{
+        font-size: 1rem;
+    } 
+    #norv-hotel-main-text{
+        width: 80vw;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        p{
+            font-size: 1rem;
+        }
+        
+        h1{
+            font-size: 1.5rem;
+        }
+    }
+    #norv-tiny-img-div{
+        width: 90vw;
+    }
+    .norv-tiny-img{
+        width: 25vw;
+    }
+    details{
+        font-size: 1rem;
+        width: 80vw;
+        display: block;
+    }
+    #norv-hotel-main{
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    #norv-hotel-main-img{
+        width: 90vw;
+        height: 80vw;
+    }
+    #details-no-media{
+        display: none;
+    }
+}
+
+@media (min-width: 2300px){
+    .offer-cont{
+        width: 45rem;
+        height: 30rem;
+    }
+    .vl{
+        height: 10rem;
+    }
+    p{
+        font-size: 2rem;
+    }
+    h1{
+        font-size: 5rem;
+    }
+    h2{
+        font-size: 5rem;
+    }
+    .decouvrir{
+        font-size: 4rem;
+    }
+    #logo{
+        font-size: 5rem;
+    }
+    .vl{
+        margin-top: 4rem;
+    }
+    .title-offer{
+        font-size: 4rem;
+    }
+    .decouvrir > a{
+        padding: 2rem 3rem;
+        font-size: 1.5rem;
+    }
+    .email{
+        font-size: 2rem;
+    }
+    .button{
+        font-size: 2rem;
+    }
+    #main-end-title{
+        font-size: 4rem;
+    }
+    .contacts-button{
+        font-size: 2rem;
+        padding: 2rem;
+    }
+}
